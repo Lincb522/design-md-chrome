@@ -68,10 +68,6 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 3px;
-  background: #fafafa;
 }
 
 .mode-btn {
@@ -90,10 +86,9 @@ h1 {
 }
 
 .mode-btn.is-active {
-  border-color: var(--line);
-  background: var(--panel);
-  color: var(--text);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
 }
 
 textarea,
@@ -103,31 +98,52 @@ button {
 
 .actions {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
 }
 
 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   border: 1px solid var(--line);
-  border-radius: 9px;
+  border-radius: 6px;
   background: var(--white);
   color: var(--black);
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  transition: border-color 0.12s ease, background-color 0.12s ease;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-button:hover {
-  border-color: var(--line-strong);
+.btn-primary {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2a2a2a;
+  border-color: #2a2a2a;
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--black);
+}
+
+.btn-secondary:hover:not(:disabled) {
   background: #f8f8f8;
+  border-color: var(--line-strong);
 }
 
 button:disabled {
   cursor: not-allowed;
-  color: #aaa;
-  background: #fafafa;
+  opacity: 0.5;
+  box-shadow: none;
 }
 
 .status {
@@ -154,8 +170,12 @@ button:disabled {
 
 .preview-wrap label {
   font-size: 12px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 500;
+  color: #111;
+}
+
+.textarea-container {
+  position: relative;
 }
 
 textarea {
@@ -163,12 +183,42 @@ textarea {
   min-height: 290px;
   resize: vertical;
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 8px;
+  padding: 10px 10px 10px 10px;
   background: #fff;
   font-family: "Geist Mono", "SFMono-Regular", Menlo, monospace;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.icon-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--white);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.icon-btn:hover:not(:disabled):not(.copied) {
+  color: var(--black);
+  background: #f9f9f9;
+  border-color: var(--line-strong);
+}
+
+.icon-btn.copied {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
 }
 
 .footnote {

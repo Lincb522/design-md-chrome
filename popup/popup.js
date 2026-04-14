@@ -40,7 +40,19 @@ copyBtn.addEventListener("click", async () => {
       return;
     }
     await navigator.clipboard.writeText(state.markdown);
-    setStatus("Copied markdown to clipboard.");
+    
+    copyBtn.classList.add("copied");
+    const copyIcon = copyBtn.querySelector(".icon-copy");
+    const successIcon = copyBtn.querySelector(".icon-success");
+    if (copyIcon && successIcon) {
+      copyIcon.style.display = "none";
+      successIcon.style.display = "block";
+      setTimeout(() => {
+        copyBtn.classList.remove("copied");
+        copyIcon.style.display = "block";
+        successIcon.style.display = "none";
+      }, 2000);
+    }
   } catch (error) {
     setStatus(`Copy failed: ${toErrorText(error)}`, true);
   }

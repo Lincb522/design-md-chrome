@@ -1,53 +1,84 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DESIGN.md style extractor by TypeUI</title>
-    <link rel="stylesheet" href="./popup.css" />
-  </head>
-  <body>
-    <main class="app">
-      <header class="header">
-        <div class="brand">
-          <img src="../assets/icons/icon32.png" width="24" height="24" alt="App logo" />
-          <div>
-            <h1>DESIGN.md extractor by TypeUI</h1>
-            <p>Auto-generates from the active tab</p>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DESIGN.md style extractor by TypeUI</title>
+  <link rel="stylesheet" href="./popup.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <img src="../assets/icons/icon32.png" width="24" height="24" alt="App logo" />
+        <div>
+          <h1>DESIGN.md extractor by TypeUI</h1>
+          <p>Auto-generates from the active tab based on <a href="https://www.typeui.sh/design-md">DESIGN.md</a>
+            specifications.</p>
         </div>
-        <span class="badge">v0.1</span>
-      </header>
+      </div>
+      <span class="badge">v0.1</span>
+    </header>
 
-      <section class="mode-switch" aria-label="Output mode">
-        <button id="designModeBtn" type="button" data-mode="design" class="mode-btn is-active">
-          DESIGN.md
-        </button>
-        <button id="skillModeBtn" type="button" data-mode="skill" class="mode-btn">
-          SKILL.md
-        </button>
-      </section>
+    <section class="mode-switch" aria-label="Output mode">
+      <button id="designModeBtn" type="button" data-mode="design" class="mode-btn is-active">
+        DESIGN.md
+      </button>
+      <button id="skillModeBtn" type="button" data-mode="skill" class="mode-btn">
+        SKILL.md
+      </button>
+    </section>
 
-      <section class="actions">
-        <button id="refreshBtn" type="button">Refresh</button>
-        <button id="downloadBtn" type="button" disabled>Download</button>
-        <button id="copyBtn" type="button" disabled>Copy</button>
-      </section>
 
-      <p id="status" class="status">Preparing automatic extraction...</p>
-      <ul id="issues" class="issues"></ul>
+    <p id="status" class="status">Preparing automatic extraction...</p>
+    <ul id="issues" class="issues"></ul>
 
-      <section class="preview-wrap">
-        <label for="preview">Generated Markdown</label>
+    <section class="preview-wrap">
+      <label for="preview">Generated Markdown</label>
+      <div class="textarea-container">
         <textarea id="preview" readonly></textarea>
-      </section>
+        <button id="copyBtn" type="button" class="icon-btn" disabled aria-label="Copy to clipboard">
+          <svg class="icon-copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <svg class="icon-success" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </button>
+      </div>
+    </section>
 
-      <footer class="footnote">
-        Based on
-        <a href="https://typeui.sh/" target="_blank" rel="noopener noreferrer">TypeUI</a>
-      </footer>
-    </main>
+    <section class="actions">
+      <button id="refreshBtn" type="button" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+        </svg>
+        Refresh
+      </button>
+      <button id="downloadBtn" type="button" class="btn-secondary" disabled>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download
+      </button>
+    </section>
 
-    <script type="module" src="./popup.js"></script>
-  </body>
+    <footer class="footnote">
+      Find more design skills at <a href="https://www.typeui.sh/design-skills">TypeUI</a>.
+    </footer>
+  </main>
+
+  <script type="module" src="./popup.js"></script>
+</body>
+
 </html>
