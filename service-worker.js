@@ -64,13 +64,15 @@ async function handleExtraction(message) {
 }
 
 async function handleDownload(message) {
-  if (!message.markdown || !message.filename) {
+  if (!message.markdown) {
     throw new Error("Cannot download empty markdown.");
   }
+
+  const filename = normalizeMarkdownFilename(message.filename, message.mode);
   const url = `data:text/markdown;charset=utf-8,${encodeURIComponent(message.markdown)}`;
   return chrome.downloads.download({
     url,
-    filename: message.filename,
+    filename,
     saveAs: true,
     conflictAction: "uniquify"
   });
@@ -118,4 +120,31 @@ function stringifyError(error) {
     return error.message;
   }
   return String(error || "Unknown error");
+}
+
+function normalizeMarkdownFilename(inputName, mode) {
+  const normalizedMode = mode === "skill" ? "skill" : "design";
+  const fallback = normalizedMode === "skill" ? "SKILL.md" : "DESIGN.md";
+  const raw = String(inputName || "").trim();
+
+  if (!raw) {
+    return fallback;
+  }
+
+  const name = raw.replace(/[\\/]/g, "").trim();
+  if (!name) {
+    return fallback;
+  }
+
+  if (normalizedMode === "skill") {
+    if (/^skill(\.md)?$/i.test(name)) {
+      return "SKILL.md";
+    }
+    return name.toLowerCase().endsWith(".md") ? name : `${name}.md`;
+  }
+
+  if (/^design(\.md)?$/i.test(name)) {
+    return "DESIGN.md";
+  }
+  return name.toLowerCase().endsWith(".md") ? name : `${name}.md`;
 }

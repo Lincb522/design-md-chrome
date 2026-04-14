@@ -113,6 +113,7 @@ async function downloadCurrent() {
   setStatus(`Preparing ${state.filename} download...`);
   const response = await chrome.runtime.sendMessage({
     type: "DOWNLOAD_MARKDOWN",
+    mode: state.mode,
     filename: state.filename,
     markdown: state.markdown
   });
