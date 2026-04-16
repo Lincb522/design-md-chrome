@@ -1,8 +1,4 @@
-# TypeUI DESIGN.md Extractor (Chrome Extension) - 汉化版
-
-> **注意：此项目为中文本地化版本**
->
-> 我们是此插件的汉化项目，全面支持了基于官方 `i18n` 的中英文自动切换！
+# TypeUI DESIGN.md Extractor (Chrome Extension)
 
 This Chrome extension extract styles and information from any given site and generates a `DESIGN.md` or `SKILL.md` file that you can use with tools such as Google Stitch, Claude Code, Codex, and others to build websites with a given design system blueprint. The file is based on the open-source [TypeUI DESIGN.md](https://www.typeui.sh/design-md) format.
 
