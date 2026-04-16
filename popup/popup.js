@@ -134,10 +134,36 @@ async function downloadCurrent(overrideFilename) {
     return;
   }
 
+  const targetFilename = overrideFilename || state.filename;
+
+  // Modern browser File System Access API reliably handles dotfiles (.cursorrules) natively
+  if ('showSaveFilePicker' in window) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: targetFilename,
+        types: [{
+          description: 'Configuration File',
+          accept: { 'text/plain': ['.txt', '.md'] }
+        }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(state.markdown);
+      await writable.close();
+      clearStatus();
+      return; 
+    } catch (err) {
+      if (err.name === 'AbortError') {
+        clearStatus();
+        return;
+      }
+      console.warn("File System API failed, falling back to chrome.downloads...", err);
+    }
+  }
+
   const response = await chrome.runtime.sendMessage({
     type: "DOWNLOAD_MARKDOWN",
     mode: state.mode,
-    filename: overrideFilename || state.filename,
+    filename: targetFilename,
     markdown: state.markdown
   });
 
