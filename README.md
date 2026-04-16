@@ -3,7 +3,7 @@
 > **注意：此项目为进阶中文本地化版本**
 >
 > 我们不仅全面支持了基于官方 `i18n` 的中英文自动切换，还在最新版本完美介入了底层 File System Access API。
-> 现在不仅支持原生 `DESIGN.md` 和 `SKILL.md`，更**史诗级支持了将近 14 种主流 AI IDE / CLI 工具的全局系统级配置文件（如 `.geminirules`、`.cursorrules`、`.clinerules` 等）的无痛一键导出**，完美绕过 Chrome 系统点文件的拦截限制！
+> 现在不仅支持原生 `DESIGN.md` 和 `SKILL.md`，更**史诗级支持了将近 14 种主流 AI IDE / CLI 工具的全局系统级配置文件（如 `.geminirules`、`.cursorrules`、`.clinerules` 等）的无痛一键导出**！
 
 This Chrome extension extract styles and information from any given site and generates a `DESIGN.md` or `SKILL.md` file that you can use with tools such as Google Stitch, Claude Code, Codex, and others to build websites with a given design system blueprint. The file is based on the open-source [TypeUI DESIGN.md](https://www.typeui.sh/design-md) format.
 
