@@ -13,6 +13,10 @@ const downloadCursorBtn = document.getElementById("downloadCursorBtn");
 const downloadWindsurfBtn = document.getElementById("downloadWindsurfBtn");
 const downloadCopilotBtn = document.getElementById("downloadCopilotBtn");
 const downloadClineBtn = document.getElementById("downloadClineBtn");
+const downloadClaudeBtn = document.getElementById("downloadClaudeBtn");
+const downloadTraeBtn = document.getElementById("downloadTraeBtn");
+const downloadPearBtn = document.getElementById("downloadPearBtn");
+const downloadAiderBtn = document.getElementById("downloadAiderBtn");
 const copyBtn = document.getElementById("copyBtn");
 const helpBtn = document.getElementById("helpBtn");
 const helpPanel = document.getElementById("helpPanel");
@@ -52,6 +56,18 @@ downloadCopilotBtn.addEventListener("click", () => {
 });
 downloadClineBtn.addEventListener("click", () => {
   downloadCurrent(".clinerules").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadClaudeBtn.addEventListener("click", () => {
+  downloadCurrent("CLAUDE.md").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadTraeBtn.addEventListener("click", () => {
+  downloadCurrent(".traerules").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadPearBtn.addEventListener("click", () => {
+  downloadCurrent(".pearairules").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadAiderBtn.addEventListener("click", () => {
+  downloadCurrent(".aiderrules").catch((error) => setStatus(toErrorText(error), true));
 });
 
 helpBtn.addEventListener("click", () => {
@@ -128,6 +144,10 @@ async function runExtraction() {
     downloadWindsurfBtn.disabled = false;
     downloadCopilotBtn.disabled = false;
     downloadClineBtn.disabled = false;
+    downloadClaudeBtn.disabled = false;
+    downloadTraeBtn.disabled = false;
+    downloadPearBtn.disabled = false;
+    downloadAiderBtn.disabled = false;
     copyBtn.disabled = false;
 
     renderValidationIssues(response.validation);

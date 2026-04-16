@@ -44,5 +44,9 @@
   "exportToCursorBtn": { "message": "Export as Cursor rules (.cursorrules)" },
   "exportToWindsurfBtn": { "message": "Export as Windsurf rules (.windsurfrules)" },
   "exportToCopilotBtn": { "message": "Export as Copilot instructions (copilot-instructions.md)" },
-  "exportToClineBtn": { "message": "Export as Cline / RooCode rules (.clinerules)" }
+  "exportToClineBtn": { "message": "Export as Cline / RooCode rules (.clinerules)" },
+  "exportToClaudeBtn": { "message": "Export as Claude Code rules (CLAUDE.md)" },
+  "exportToTraeBtn": { "message": "Export as Trae rules (.traerules)" },
+  "exportToPearBtn": { "message": "Export as PearAI rules (.pearairules)" },
+  "exportToAiderBtn": { "message": "Export as Aider rules (.aiderrules)" }
 }

@@ -131,7 +131,16 @@ function normalizeMarkdownFilename(inputName, mode) {
     return fallback;
   }
 
-  if (raw === ".cursorrules" || raw === ".windsurfrules" || raw === ".clinerules" || raw === "copilot-instructions.md") {
+  if (
+    raw === ".cursorrules" ||
+    raw === ".windsurfrules" ||
+    raw === ".clinerules" ||
+    raw === "copilot-instructions.md" ||
+    raw === "CLAUDE.md" ||
+    raw === ".traerules" ||
+    raw === ".pearairules" ||
+    raw === ".aiderrules"
+  ) {
     return raw;
   }
 

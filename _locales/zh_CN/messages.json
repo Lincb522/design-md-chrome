@@ -44,5 +44,9 @@
   "exportToCursorBtn": { "message": "一键导出 Cursor 规则 (.cursorrules)" },
   "exportToWindsurfBtn": { "message": "一键导出 Windsurf 规则 (.windsurfrules)" },
   "exportToCopilotBtn": { "message": "一键导出 Copilot 指令 (copilot-instructions.md)" },
-  "exportToClineBtn": { "message": "一键导出 Cline (原 RooCode 等) 规则 (.clinerules)" }
+  "exportToClineBtn": { "message": "一键导出 Cline (原 RooCode 等) 规则 (.clinerules)" },
+  "exportToClaudeBtn": { "message": "一键导出 Claude Code 规则 (CLAUDE.md)" },
+  "exportToTraeBtn": { "message": "一键导出 Trae 规则 (.traerules)" },
+  "exportToPearBtn": { "message": "一键导出 PearAI 规则 (.pearairules)" },
+  "exportToAiderBtn": { "message": "一键导出 Aider 规则 (.aiderrules)" }
 }
