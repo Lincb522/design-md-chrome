@@ -144,7 +144,12 @@ async function downloadCurrent(overrideFilename) {
   if (!response || !response.ok) {
     throw new Error(response?.error || chrome.i18n.getMessage("statusDownloadFailed"));
   }
-  clearStatus();
+  
+  if (response.wasRenamed) {
+    setStatus(chrome.i18n.getMessage("statusRenamedDotfile", [response.safeFilename]), false);
+  } else {
+    clearStatus();
+  }
 }
 
 function setBusy(isBusy) {

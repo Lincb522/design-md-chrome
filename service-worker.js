@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 
   if (message.type === "DOWNLOAD_MARKDOWN") {
     handleDownload(message)
-      .then((downloadId) => sendResponse({ ok: true, downloadId }))
+      .then((res) => sendResponse({ ok: true, ...res }))
       .catch((error) => sendResponse({ ok: false, error: stringifyError(error) }));
     return true;
   }
@@ -68,13 +68,21 @@ async function handleDownload(message) {
     throw new Error(chrome.i18n.getMessage("errCannotDownloadEmpty"));
   }
 
-  const filename = normalizeMarkdownFilename(message.filename, message.mode);
+  let safeFilename = normalizeMarkdownFilename(message.filename, message.mode);
+  let wasRenamed = false;
+  if (safeFilename.startsWith(".")) {
+    safeFilename = "_" + safeFilename.substring(1);
+    wasRenamed = true;
+  }
+
   const url = `data:text/markdown;charset=utf-8,${encodeURIComponent(message.markdown)}`;
   return chrome.downloads.download({
     url,
-    filename,
+    filename: safeFilename,
     saveAs: true,
     conflictAction: "uniquify"
+  }).then((downloadId) => {
+    return { downloadId, safeFilename, wasRenamed };
   });
 }
 

@@ -49,5 +49,6 @@
   "exportToTraeBtn": { "message": "Export as Trae rules (.traerules)" },
   "exportToPearBtn": { "message": "Export as PearAI rules (.pearairules)" },
   "exportToAiderBtn": { "message": "Export as Aider rules (.aiderrules)" },
-  "exportIdeDropdownDefault": { "message": "Export for AI IDE..." }
+  "exportIdeDropdownDefault": { "message": "Export for AI IDE..." },
+  "statusRenamedDotfile": { "message": "Chrome limits hidden files. Saved as $1, please manually remove the underscore.", "placeholders": { "1": { "content": "$1" } } }
 }

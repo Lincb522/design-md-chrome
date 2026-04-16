@@ -49,5 +49,6 @@
   "exportToTraeBtn": { "message": "一键导出 Trae 规则 (.traerules)" },
   "exportToPearBtn": { "message": "一键导出 PearAI 规则 (.pearairules)" },
   "exportToAiderBtn": { "message": "一键导出 Aider 规则 (.aiderrules)" },
-  "exportIdeDropdownDefault": { "message": "导出至 AI..." }
+  "exportIdeDropdownDefault": { "message": "导出至 AI..." },
+  "statusRenamedDotfile": { "message": "由于 Chrome 的隐藏文件限制，已导出为 $1，请在保存时或本地手动把 _ 改回 .", "placeholders": { "1": { "content": "$1" } } }
 }
