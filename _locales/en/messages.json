@@ -42,5 +42,7 @@
   "errUnknownError": { "message": "Unknown error" },
 
   "exportToCursorBtn": { "message": "Export as Cursor rules (.cursorrules)" },
-  "exportToWindsurfBtn": { "message": "Export as Windsurf rules (.windsurfrules)" }
+  "exportToWindsurfBtn": { "message": "Export as Windsurf rules (.windsurfrules)" },
+  "exportToCopilotBtn": { "message": "Export as Copilot instructions (copilot-instructions.md)" },
+  "exportToClineBtn": { "message": "Export as Cline / RooCode rules (.clinerules)" }
 }

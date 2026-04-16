@@ -42,5 +42,7 @@
   "errUnknownError": { "message": "未知错误" },
 
   "exportToCursorBtn": { "message": "一键导出 Cursor 规则 (.cursorrules)" },
-  "exportToWindsurfBtn": { "message": "一键导出 Windsurf 规则 (.windsurfrules)" }
+  "exportToWindsurfBtn": { "message": "一键导出 Windsurf 规则 (.windsurfrules)" },
+  "exportToCopilotBtn": { "message": "一键导出 Copilot 指令 (copilot-instructions.md)" },
+  "exportToClineBtn": { "message": "一键导出 Cline (原 RooCode 等) 规则 (.clinerules)" }
 }

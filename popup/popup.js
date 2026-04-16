@@ -11,6 +11,8 @@ const refreshBtn = document.getElementById("refreshBtn");
 const downloadBtn = document.getElementById("downloadBtn");
 const downloadCursorBtn = document.getElementById("downloadCursorBtn");
 const downloadWindsurfBtn = document.getElementById("downloadWindsurfBtn");
+const downloadCopilotBtn = document.getElementById("downloadCopilotBtn");
+const downloadClineBtn = document.getElementById("downloadClineBtn");
 const copyBtn = document.getElementById("copyBtn");
 const helpBtn = document.getElementById("helpBtn");
 const helpPanel = document.getElementById("helpPanel");
@@ -44,6 +46,12 @@ downloadCursorBtn.addEventListener("click", () => {
 });
 downloadWindsurfBtn.addEventListener("click", () => {
   downloadCurrent(".windsurfrules").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadCopilotBtn.addEventListener("click", () => {
+  downloadCurrent("copilot-instructions.md").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadClineBtn.addEventListener("click", () => {
+  downloadCurrent(".clinerules").catch((error) => setStatus(toErrorText(error), true));
 });
 
 helpBtn.addEventListener("click", () => {
@@ -118,6 +126,8 @@ async function runExtraction() {
     downloadBtn.disabled = false;
     downloadCursorBtn.disabled = false;
     downloadWindsurfBtn.disabled = false;
+    downloadCopilotBtn.disabled = false;
+    downloadClineBtn.disabled = false;
     copyBtn.disabled = false;
 
     renderValidationIssues(response.validation);
