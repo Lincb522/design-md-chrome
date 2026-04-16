@@ -1,8 +1,9 @@
 # TypeUI DESIGN.md Extractor (Chrome Extension) - 汉化版
 
-> **注意：此项目为中文本地化版本**
+> **注意：此项目为进阶中文本地化版本**
 >
-> 我们是此插件的汉化项目，全面支持了基于官方 `i18n` 的中英文自动切换！
+> 我们不仅全面支持了基于官方 `i18n` 的中英文自动切换，还在最新版本完美介入了底层 File System Access API。
+> 现在不仅支持原生 `DESIGN.md` 和 `SKILL.md`，更**史诗级支持了将近 14 种主流 AI IDE / CLI 工具的全局系统级配置文件（如 `.geminirules`、`.cursorrules`、`.clinerules` 等）的无痛一键导出**，完美绕过 Chrome 系统点文件的拦截限制！
 
 This Chrome extension extract styles and information from any given site and generates a `DESIGN.md` or `SKILL.md` file that you can use with tools such as Google Stitch, Claude Code, Codex, and others to build websites with a given design system blueprint. The file is based on the open-source [TypeUI DESIGN.md](https://www.typeui.sh/design-md) format.
 
@@ -30,6 +31,7 @@ Check out curated design systems at [typeui.sh/design-skills](https://www.typeui
 | Generate `SKILL.md` | Produces agent-ready skill markdown from extracted signals. |
 | Refresh | Re-runs extraction for the current page state. |
 | Download | Saves generated output as `DESIGN.md` or `SKILL.md`. |
+| Export for AI IDE | **[NEW]** An interactive dropdown menu seamlessly exports the design system explicitly named after rules required by AI IDEs (Supports `Gemini/Antigravity`, `Cursor`, `Windsurf`, `GitHub Copilot`, `RooCode/Cline`, `Claude Code`, `Trae`, `PearAI`, `Aider`, `Devin`, `MarsCode`, `Bolt.new`, `Continue.dev`, `v0` etc.) directly as hidden files (.dotfiles). |
 | Explain (`?`) | Shows how the file was generated, with TypeUI reference. |
 
 ## Generated file structure
