@@ -139,11 +139,15 @@ async function downloadCurrent(overrideFilename) {
   // Modern browser File System Access API reliably handles dotfiles (.cursorrules) natively
   if ('showSaveFilePicker' in window) {
     try {
+      // Extract extension if it exists, to prevent browser from appending .txt forcedly
+      const extMatch = targetFilename.match(/\.[^.]+$/);
+      const ext = extMatch ? extMatch[0] : '.md';
+      
       const handle = await window.showSaveFilePicker({
         suggestedName: targetFilename,
         types: [{
           description: 'Configuration File',
-          accept: { 'text/plain': ['.txt', '.md'] }
+          accept: { 'text/plain': ['.txt', '.md', ext] }
         }]
       });
       const writable = await handle.createWritable();
