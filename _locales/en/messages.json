@@ -48,5 +48,6 @@
   "exportToClaudeBtn": { "message": "Export as Claude Code rules (CLAUDE.md)" },
   "exportToTraeBtn": { "message": "Export as Trae rules (.traerules)" },
   "exportToPearBtn": { "message": "Export as PearAI rules (.pearairules)" },
-  "exportToAiderBtn": { "message": "Export as Aider rules (.aiderrules)" }
+  "exportToAiderBtn": { "message": "Export as Aider rules (.aiderrules)" },
+  "exportIdeDropdownDefault": { "message": "Export for AI IDE..." }
 }

@@ -9,14 +9,7 @@ const state = {
 const modeButtons = Array.from(document.querySelectorAll("[data-mode]"));
 const refreshBtn = document.getElementById("refreshBtn");
 const downloadBtn = document.getElementById("downloadBtn");
-const downloadCursorBtn = document.getElementById("downloadCursorBtn");
-const downloadWindsurfBtn = document.getElementById("downloadWindsurfBtn");
-const downloadCopilotBtn = document.getElementById("downloadCopilotBtn");
-const downloadClineBtn = document.getElementById("downloadClineBtn");
-const downloadClaudeBtn = document.getElementById("downloadClaudeBtn");
-const downloadTraeBtn = document.getElementById("downloadTraeBtn");
-const downloadPearBtn = document.getElementById("downloadPearBtn");
-const downloadAiderBtn = document.getElementById("downloadAiderBtn");
+const exportIdeSelect = document.getElementById("exportIdeSelect");
 const copyBtn = document.getElementById("copyBtn");
 const helpBtn = document.getElementById("helpBtn");
 const helpPanel = document.getElementById("helpPanel");
@@ -45,29 +38,11 @@ for (const button of modeButtons) {
 downloadBtn.addEventListener("click", () => {
   downloadCurrent().catch((error) => setStatus(toErrorText(error), true));
 });
-downloadCursorBtn.addEventListener("click", () => {
-  downloadCurrent(".cursorrules").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadWindsurfBtn.addEventListener("click", () => {
-  downloadCurrent(".windsurfrules").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadCopilotBtn.addEventListener("click", () => {
-  downloadCurrent("copilot-instructions.md").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadClineBtn.addEventListener("click", () => {
-  downloadCurrent(".clinerules").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadClaudeBtn.addEventListener("click", () => {
-  downloadCurrent("CLAUDE.md").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadTraeBtn.addEventListener("click", () => {
-  downloadCurrent(".traerules").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadPearBtn.addEventListener("click", () => {
-  downloadCurrent(".pearairules").catch((error) => setStatus(toErrorText(error), true));
-});
-downloadAiderBtn.addEventListener("click", () => {
-  downloadCurrent(".aiderrules").catch((error) => setStatus(toErrorText(error), true));
+exportIdeSelect.addEventListener("change", (e) => {
+  const filename = e.target.value;
+  if (!filename) return;
+  downloadCurrent(filename).catch((error) => setStatus(toErrorText(error), true));
+  e.target.value = "";
 });
 
 helpBtn.addEventListener("click", () => {
@@ -140,14 +115,7 @@ async function runExtraction() {
 
     previewEl.value = response.markdown;
     downloadBtn.disabled = false;
-    downloadCursorBtn.disabled = false;
-    downloadWindsurfBtn.disabled = false;
-    downloadCopilotBtn.disabled = false;
-    downloadClineBtn.disabled = false;
-    downloadClaudeBtn.disabled = false;
-    downloadTraeBtn.disabled = false;
-    downloadPearBtn.disabled = false;
-    downloadAiderBtn.disabled = false;
+    exportIdeSelect.disabled = false;
     copyBtn.disabled = false;
 
     renderValidationIssues(response.validation);

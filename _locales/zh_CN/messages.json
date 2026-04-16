@@ -48,5 +48,6 @@
   "exportToClaudeBtn": { "message": "一键导出 Claude Code 规则 (CLAUDE.md)" },
   "exportToTraeBtn": { "message": "一键导出 Trae 规则 (.traerules)" },
   "exportToPearBtn": { "message": "一键导出 PearAI 规则 (.pearairules)" },
-  "exportToAiderBtn": { "message": "一键导出 Aider 规则 (.aiderrules)" }
+  "exportToAiderBtn": { "message": "一键导出 Aider 规则 (.aiderrules)" },
+  "exportIdeDropdownDefault": { "message": "导出至 AI..." }
 }

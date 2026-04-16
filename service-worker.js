@@ -139,7 +139,13 @@ function normalizeMarkdownFilename(inputName, mode) {
     raw === "CLAUDE.md" ||
     raw === ".traerules" ||
     raw === ".pearairules" ||
-    raw === ".aiderrules"
+    raw === ".aiderrules" ||
+    raw === ".geminirules" ||
+    raw === ".devinrules" ||
+    raw === ".marscoderules" ||
+    raw === ".boltrules" ||
+    raw === ".continuerules" ||
+    raw === "v0.md"
   ) {
     return raw;
   }
