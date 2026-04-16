@@ -131,6 +131,10 @@ function normalizeMarkdownFilename(inputName, mode) {
     return fallback;
   }
 
+  if (raw === ".cursorrules" || raw === ".windsurfrules") {
+    return raw;
+  }
+
   const name = raw.replace(/[\\/]/g, "").trim();
   if (!name) {
     return fallback;

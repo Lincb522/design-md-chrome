@@ -39,5 +39,8 @@
   "errNoExtractionResponse": { "message": "页面内未能返回提取数据结果。" },
   "errCannotDownloadEmpty": { "message": "无法下载空的 markdown 数据。" },
   "errUnknownExtractionError": { "message": "遭遇未知的提取错误" },
-  "errUnknownError": { "message": "未知错误" }
+  "errUnknownError": { "message": "未知错误" },
+
+  "exportToCursorBtn": { "message": "一键导出 Cursor 规则 (.cursorrules)" },
+  "exportToWindsurfBtn": { "message": "一键导出 Windsurf 规则 (.windsurfrules)" }
 }

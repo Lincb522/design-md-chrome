@@ -39,5 +39,8 @@
   "errNoExtractionResponse": { "message": "No extraction response from tab." },
   "errCannotDownloadEmpty": { "message": "Cannot download empty markdown." },
   "errUnknownExtractionError": { "message": "Unknown extraction error" },
-  "errUnknownError": { "message": "Unknown error" }
+  "errUnknownError": { "message": "Unknown error" },
+
+  "exportToCursorBtn": { "message": "Export as Cursor rules (.cursorrules)" },
+  "exportToWindsurfBtn": { "message": "Export as Windsurf rules (.windsurfrules)" }
 }

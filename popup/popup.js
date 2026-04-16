@@ -9,6 +9,8 @@ const state = {
 const modeButtons = Array.from(document.querySelectorAll("[data-mode]"));
 const refreshBtn = document.getElementById("refreshBtn");
 const downloadBtn = document.getElementById("downloadBtn");
+const downloadCursorBtn = document.getElementById("downloadCursorBtn");
+const downloadWindsurfBtn = document.getElementById("downloadWindsurfBtn");
 const copyBtn = document.getElementById("copyBtn");
 const helpBtn = document.getElementById("helpBtn");
 const helpPanel = document.getElementById("helpPanel");
@@ -36,6 +38,12 @@ for (const button of modeButtons) {
 
 downloadBtn.addEventListener("click", () => {
   downloadCurrent().catch((error) => setStatus(toErrorText(error), true));
+});
+downloadCursorBtn.addEventListener("click", () => {
+  downloadCurrent(".cursorrules").catch((error) => setStatus(toErrorText(error), true));
+});
+downloadWindsurfBtn.addEventListener("click", () => {
+  downloadCurrent(".windsurfrules").catch((error) => setStatus(toErrorText(error), true));
 });
 
 helpBtn.addEventListener("click", () => {
@@ -108,6 +116,8 @@ async function runExtraction() {
 
     previewEl.value = response.markdown;
     downloadBtn.disabled = false;
+    downloadCursorBtn.disabled = false;
+    downloadWindsurfBtn.disabled = false;
     copyBtn.disabled = false;
 
     renderValidationIssues(response.validation);
@@ -120,7 +130,7 @@ async function runExtraction() {
   }
 }
 
-async function downloadCurrent() {
+async function downloadCurrent(overrideFilename) {
   if (!state.markdown || !state.filename) {
     setStatus(chrome.i18n.getMessage("statusNothingToDownload"), true);
     return;
@@ -129,7 +139,7 @@ async function downloadCurrent() {
   const response = await chrome.runtime.sendMessage({
     type: "DOWNLOAD_MARKDOWN",
     mode: state.mode,
-    filename: state.filename,
+    filename: overrideFilename || state.filename,
     markdown: state.markdown
   });
 
